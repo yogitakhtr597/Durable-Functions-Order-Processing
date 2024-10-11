@@ -135,7 +135,7 @@ The property [`maxQueuePollingInterval`](https://learn.microsoft.com/azure/azure
 
 2. Open up a browser and go that url to trigger the start of an orchestration instance. 
 
-3. Go to the `statusQueryGetUri` to see the status of your orchestration instance. It should show "Running" at the beginning, but change to "Completed" after a few seconds if you refresh the page, just like shown (above)[#using-azure-functions-core-tools-(cli)]. 
+3. Go to the `statusQueryGetUri` to see the status of your orchestration instance. It should show "Running" at the beginning, but change to "Completed" after a few seconds if you refresh the page, just like shown [above](#using-azure-functions-core-tools-cli). 
 
 ## Clean up resources
 
