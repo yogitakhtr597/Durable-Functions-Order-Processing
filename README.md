@@ -33,7 +33,7 @@ The project is designed to run on your local computer, provided you have met the
 + [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) 
 + [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local?tabs=v4%2Cmacos%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools)
 + Start Azurite storage emulator. See [this page](https://learn.microsoft.com/azure/storage/common/storage-use-azurite) for how to configure and start the Azurite emulator for Local Storage.
-+ Create a file named `local.settings.json` in **OrderProcessor** directory and add the following:
++ Clone the repo, then create a file named `local.settings.json` with the following content in the **OrderProcessor** directory:
 
   ```json
   {
@@ -103,10 +103,7 @@ func start
 
 ## Provision the solution on Azure
 
-To set up this sample, follow these steps:
-
-1. Clone this repository to your local machine.
-2. in the root folder (DURABLE-FUNC-ORDER-PROCESSING) use the [Azure Developer CLI (azd)](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) to provision a new resource group with the environment name you provide and all the resources for the sample.
+In the root folder (Durable-Functions-Order-Processing) use the [Azure Developer CLI (azd)](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) to provision a new resource group with the environment name you provide and all the resources for the sample by running:
 
 ```bash
 azd up
@@ -117,9 +114,9 @@ azd up
 Once the deployment is done, inspect the new resource group. The Flex Consumption function app and plan, storage, App Insights, and networking related resources have been created and configured:
 ![Screenshot of resources created by the bicept template](./img/resources-created.png)
 
-Because Durable Functions requires access to Azure Storage Blob, Table, and Queue, we created the associated networking resources such as private endpoints, link, etc. for each of those. 
+Because Durable Functions requires access to Azure Storage Blob, Table, and Queue, the associated networking resources such as private endpoints, link, etc. are created for each of those. 
 
-Flex Consumption has an *[always ready](https://learn.microsoft.com/azure/azure-functions/flex-consumption-how-to?#set-always-ready-instance-counts)* feature that allows users to specify the number of compute instances that are always running to minimize cold start. We [set always ready instance to 1](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#considerations) for the "durable" group in this sample. 
+Flex Consumption has an *[always ready](https://learn.microsoft.com/azure/azure-functions/flex-consumption-how-to?#set-always-ready-instance-counts)* feature that allows users to specify the number of compute instances that are always running to minimize cold start. This sample [sets always ready instance](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#considerations) to 1 for the "durable" group.  
 
 The property [`maxQueuePollingInterval`](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-bindings#hostjson-settings) is also set to 1 second to decrease message processing latencies. Note, however, that lower values of `maxQueuePollingInterval` can result in higher storage costs because of increased storage transactions.
 
