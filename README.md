@@ -11,9 +11,9 @@ languages:
 - azdeveloper
 ---
 
-# Flex Consumption plan - Order processing workflow | Azure Durable Functions
+# Order processing workflow with Durable Functions
 
-Durable Functions helps you easily orchestrate stateful logic with *imperative* code, making it an excellent solution for workflow scenarios, as well as stateful patterns like fan-out/fan-in and workloads that require long-running operations or need to wait arbitrarily long for external events. 
+[Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview) has an extension called [Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview). Durable Functions helps you easily orchestrate stateful logic, making it an excellent solution for workflow scenarios, as well as stateful patterns like fan-out/fan-in and workloads that require long-running operations or need to wait arbitrarily long for external events. 
 
 This sample shows how to implement an order processing workflow with Durable Functions in C# (running in the isolated model) and can easily be deployed to a function app in Azure. Durable Functions needs a ["storage backend provider"](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-storage-providers) to persist application states. This sample uses the default backend, which is Azure Storage.  
 
