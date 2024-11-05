@@ -1,3 +1,4 @@
+<!--
 ---
 description: This end-to-end sample shows how implement an order processing workflow using Durable Functions. 
 page_type: sample
@@ -10,6 +11,7 @@ languages:
 - bicep
 - azdeveloper
 ---
+-->
 
 # Order processing workflow with Durable Functions
 
